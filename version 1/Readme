@@ -1,0 +1,13 @@
+This package provides a simple test map-reduce operation over hadoop or as a stand alone. It takes in a csv file which has a collection of movies rated and counts the total number of movies of a particular type. 
+
+You can test your code with a standard command line,  as follows:
+
+cat FileName.csv | python map_1.py | python reduce_1.py
+
+We will use Hadoop Streaming to execute our MapReduce scripts. In a terminal, type the following command:
+
+hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming-2.7.3.2.5.0.0-1245.jar \
+ -input /reddit/submissions.csv \
+ -output /reddit-output \
+ -mapper "python /root/hadoop/map.py" \
+ -reducer "python /root/hadoop/reduce.py"

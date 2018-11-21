@@ -1,0 +1,13 @@
+The package provides another simple implementation of hadoop map reduce and takes in movie data to find out the average ratings of the movies and the number of users which rated that movie. 
+
+The given package contains 4 python codes and two csv files which contain the required data. In order to test the codes stand alone the following command can be run from the terminal such as that of linux. 
+
+cat FileName.csv | python map_1.py | python reduce_1.py
+
+in order to run the command over HAdoop the following commands should be used. 
+
+hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming-2.7.3.2.5.0.0-1245.jar \
+ -input /path/filnemae.csv \
+ -output /path-output \
+ -mapper "python /root/hadoop/map.py" \
+ -reducer "python /root/hadoop/reduce.py"
